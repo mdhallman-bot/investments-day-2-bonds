@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit 3, Day 2 — Class Companion: Bonds, Risk & Diversification</title>
+<style>
+  :root {
+    --ink:#222222; --paper:#faf8f3; --accent:#1B2A4A; --gold:#B08D2B;
+    --green:#e4f4e6; --green-strong:#3F7D53; --red:#fcefed; --red-strong:#A3453B;
+    --panel:#eef1f5; --muted:#666; --line:#d7d7d7;
+  }
+  * { box-sizing:border-box; }
+  body { font-family:Georgia,'Times New Roman',serif; max-width:920px; margin:0 auto; padding:20px; line-height:1.58; color:var(--ink); background:#fff; }
+  h1 { font-family:Arial,sans-serif; font-size:1.65rem; margin:0 0 4px; color:var(--accent); }
+  h2 { font-family:Arial,sans-serif; font-size:1.2rem; margin-top:2.15em; border-bottom:2px solid var(--gold); padding-bottom:4px; color:var(--accent); }
+  h3 { font-family:Arial,sans-serif; font-size:1rem; margin:1.15em 0 .35em; color:var(--accent); }
+  h4 { font-family:Arial,sans-serif; color:var(--accent); margin:.1em 0 .35em; }
+  .subtitle { color:#555; font-family:Arial,sans-serif; font-size:.95rem; margin-bottom:1.2em; }
+  .rubric-note { background:var(--panel); border-left:4px solid var(--accent); padding:12px 16px; font-family:Arial,sans-serif; font-size:.88rem; }
+  .howto { background:#fbf6e9; border:1px solid #e9dcb0; border-radius:6px; padding:14px 18px; font-family:Arial,sans-serif; margin:14px 0; }
+  .howto ol { margin:7px 0 0; padding-left:22px; }
+  .howto li { margin-bottom:5px; }
+  .id-bar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; background:var(--panel); padding:12px 16px; margin:16px 0; border-radius:4px; }
+  .id-bar input { padding:6px 8px; font-size:14px; font-family:Arial,sans-serif; }
+  button { font-family:Arial,sans-serif; padding:8px 14px; font-size:13.5px; cursor:pointer; border:1px solid var(--accent); background:#fff; color:var(--accent); border-radius:4px; margin:4px 6px 4px 0; }
+  button:hover { background:var(--accent); color:#fff; }
+  button.primary { background:var(--accent); color:#fff; }
+  button:disabled { opacity:.42; cursor:not-allowed; }
+  .segment-tag { display:inline-block; font-family:Arial,sans-serif; font-size:.72rem; font-weight:bold; letter-spacing:.05em; text-transform:uppercase; color:var(--gold); background:#fbf6e9; border:1px solid #e9dcb0; padding:2px 8px; border-radius:10px; margin-bottom:6px; }
+  .prompt-box { background:var(--paper); padding:14px 18px; border-left:4px solid var(--gold); margin:10px 0; }
+  .teacher-dependent { font-family:Arial,sans-serif; font-size:.86rem; color:#555; background:#f7f7f7; border:1px dashed #bbb; padding:9px 12px; border-radius:5px; margin:8px 0 12px; }
+  textarea, input[type=number], input[type=text], select { font-family:inherit; font-size:14.5px; padding:9px 10px; border:1px solid #ccc; border-radius:4px; }
+  textarea { width:100%; min-height:74px; resize:vertical; }
+  textarea.small { min-height:58px; }
+  textarea.big { min-height:125px; }
+  input[type=number] { width:150px; }
+  input[type=text].id-input { width:210px; min-height:auto; }
+  select { min-width:180px; background:#fff; }
+  label.field-label { display:block; font-family:Arial,sans-serif; font-weight:bold; font-size:.85rem; color:var(--accent); margin:8px 0 3px; }
+  .try-first-note, .save-indicator { font-family:Arial,sans-serif; font-size:.79rem; color:#888; margin-top:4px; }
+  .paste-warning { color:#a33; font-size:12.5px; margin-top:4px; font-family:Arial,sans-serif; display:none; }
+  .helper-panel { background:var(--panel); border-left:4px solid var(--accent); padding:12px 16px; margin-top:8px; white-space:pre-wrap; font-family:Arial,sans-serif; font-size:.92rem; }
+  .locked { color:#999; font-style:italic; }
+  .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin:10px 0; }
+  .card { border:1px solid #ddd; border-radius:6px; padding:12px 14px; background:#fff; }
+  .card p { font-family:Arial,sans-serif; font-size:.87rem; color:#555; margin:.25em 0; }
+  .money-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin:10px 0; }
+  .money-box { background:#fff; border:1px solid #ddd; border-radius:6px; padding:10px 12px; }
+  .money-box input { width:100%; }
+  .sum-box { font-family:Arial,sans-serif; background:var(--panel); padding:9px 12px; border-radius:5px; margin-top:8px; }
+  .sum-box.good { background:var(--green); border-left:4px solid var(--green-strong); }
+  .sum-box.bad { background:#fdf1e4; border-left:4px solid #c98a2c; }
+  .vocab-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  .vocab-item { border:1px solid #ddd; border-radius:6px; padding:11px 12px; background:#fff; }
+  .vocab-item label { display:block; font-family:Arial,sans-serif; font-weight:bold; color:var(--accent); font-size:.87rem; margin-bottom:4px; }
+  .vocab-item textarea { min-height:58px; }
+  .check-row { display:flex; align-items:center; justify-content:space-between; gap:14px; border:1px solid #ddd; border-radius:6px; padding:11px 13px; margin:8px 0; font-family:Arial,sans-serif; }
+  .check-row .scenario { flex:1; font-size:.92rem; }
+  .choice-btns { white-space:nowrap; }
+  .choice-btns button.selected { background:var(--accent); color:#fff; }
+  .reveal-answer { font-size:.8rem; margin-top:4px; color:var(--red-strong); font-style:italic; }
+  .calc-results { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:10px; }
+  .calc-result { background:var(--panel); border-radius:6px; padding:11px 12px; font-family:Arial,sans-serif; }
+  .calc-result strong { display:block; color:var(--accent); }
+  .callout { background:#eef8ef; border-left:4px solid var(--green-strong); padding:11px 14px; font-family:Arial,sans-serif; margin:10px 0; }
+  .warning-callout { background:#fdf1e4; border-left:4px solid #c98a2c; padding:11px 14px; font-family:Arial,sans-serif; margin:10px 0; }
+  .completion-banner { padding:16px 20px; border-radius:6px; font-family:Arial,sans-serif; margin:14px 0; font-size:1rem; }
+  .completion-banner.pass { background:#e4f4e6; border-left:6px solid var(--green-strong); color:#1e4d28; }
+  .completion-banner.incomplete { background:#fdf1e4; border-left:6px solid #c98a2c; color:#6b4a12; }
+  .completion-banner ul { margin:8px 0 0; padding-left:20px; font-size:.86rem; }
+  .feedback-box { background:var(--panel); border-radius:6px; padding:14px 18px; margin-top:10px; font-family:Arial,sans-serif; }
+  .feedback-box h4 { margin:0 0 4px; font-size:.9rem; }
+
+  /* Vocabulary + language supports */
+  .language-key { background:#f5f8fc; border:1px solid #cfd8e5; border-radius:6px; padding:11px 14px; margin:12px 0; font-family:Arial,sans-serif; font-size:.86rem; }
+  .tier2-word { all:unset; cursor:pointer; color:#274b7a; border-bottom:2px dotted #274b7a; font-weight:600; padding:0 1px; }
+  .tier2-word:hover,.tier2-word:focus { background:#edf3fb; }
+  .tier2-def { display:inline-block; margin:3px 4px 3px 6px; padding:5px 8px; background:#eef3f8; border:1px solid #cbd5e1; border-radius:4px; font-family:Arial,sans-serif; font-size:.78rem; color:#333; vertical-align:middle; }
+  .tier3-preview { margin:12px 0 16px; padding:12px; background:#fbfcfe; border:1px solid #d8e0ea; border-radius:7px; }
+  .tier3-preview-title { font-family:Arial,sans-serif; font-weight:700; color:var(--accent); margin-bottom:8px; }
+  .tier3-cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(145px,1fr)); gap:9px; }
+  .tier3-card { display:flex; gap:8px; align-items:center; background:white; border:1px solid #dfe4ea; border-radius:6px; padding:8px 9px; min-height:74px; }
+  .tier3-card svg { width:48px; height:48px; flex:0 0 48px; }
+  .tier3-card strong { display:block; font-family:Arial,sans-serif; color:var(--accent); font-size:.85rem; }
+  .tier3-card span { display:block; font-family:Arial,sans-serif; color:#555; font-size:.75rem; line-height:1.25; margin-top:2px; }
+  .lang-support { margin:5px 0 10px; font-family:Arial,sans-serif; }
+  .lang-support button { padding:5px 9px; font-size:.75rem; border-color:#8aa0bb; color:#274b7a; margin-right:5px; background:#f7faff; }
+  .lang-frame { display:none; background:#f5f8fc; border-left:3px solid #6f8fb5; padding:8px 10px; margin-top:5px; border-radius:3px; font-size:.82rem; color:#333; }
+  .lang-frame strong { color:#274b7a; }
+
+  @media(max-width:700px){ .cards,.money-grid,.calc-results,.vocab-grid,.tier3-cards{grid-template-columns:1fr;} .check-row{align-items:flex-start; flex-direction:column;} .choice-btns{white-space:normal;} }
+  @media print {
+    button,.id-bar,.howto,.lang-support { display:none!important; }
+    body.printing > *:not(#print-summary) { display:none!important; }
+    #print-summary { display:block!important; }
+  }
+  #print-summary { display:none; font-family:Georgia,serif; }
+  #print-summary h2 { border-bottom:1px solid #999; margin-top:1.4em; }
+  #print-summary .p-block { white-space:pre-wrap; margin:6px 0 14px; }
+  #print-summary .p-label { font-family:Arial,sans-serif; font-weight:bold; font-size:.85rem; color:var(--accent); margin-top:10px; }
+  #print-summary .p-banner-pass { background:#e4f4e6; border-left:6px solid #3F7D53; padding:14px 18px; font-family:Arial,sans-serif; margin-bottom:20px; }
+  #print-summary .p-banner-incomplete { background:#fdf1e4; border-left:6px solid #c98a2c; padding:14px 18px; font-family:Arial,sans-serif; margin-bottom:20px; }
+  #print-summary .p-percent { font-family:Arial,sans-serif; font-size:1.65rem; font-weight:700; margin:0 0 4px 0; }
+  #print-summary .p-review-top { font-family:Arial,sans-serif; border:1px solid #bbb; padding:10px 12px; margin:0 0 12px; background:#fafafa; }
+  #print-summary .p-review-top strong { color:var(--accent); }
+  #print-summary .p-meta { font-family:Arial,sans-serif; font-size:.82rem; color:#555; margin:2px 0 14px 0; }
+  #print-summary .p-choice { font-family:Arial,sans-serif; background:#f7f7f7; border:1px solid #ddd; border-radius:4px; padding:8px 10px; margin:6px 0 12px; }
+</style>
+</head>
+<body>
+
+<h1>Unit 3, Day 2: Bonds, Risk & Diversification</h1>
+<div class="subtitle">SQ1 — What do I need to know to invest? · Use this page as the class moves through each activity.</div>
+
+<div class="rubric-note">
+  <strong>Today's grade:</strong> completion, not a rubric score. This page documents your thinking from the live lesson. One section near the end gives AI-coached practice feedback; everything else simply records, calculates, or self-checks your work.
+</div>
+
+<div class="prompt-box">
+  <strong>Today's 100-minute path:</strong>
+  Do Now (8) → Loan Hook (8) → Bond Mechanics (13) → Bond Math (6) → Treasuries & Debt (9) → Name Your Rate (11) → Bond Risks (12) → Market Rates (5) → Stock vs. Bond (4) → $10K Reveal (7) → Portfolio & Diversification (5) → Risk–Reward Continuum (6) → Exit/Submit (6)
+</div>
+
+<div class="howto">
+  <strong>How today works:</strong>
+  <ol>
+    <li>Create your own class login name. Use either <strong>your first name + four numbers</strong> (example: Maya4821) or <strong>your initials + a few numbers</strong> (example: MJ731).</li>
+    <li><strong>Take a picture of your login name before you begin.</strong> You will need the exact same login if you reload your work later.</li>
+    <li>Use each section only when the class reaches it. Some information intentionally appears only in the live activity.</li>
+    <li>Your work saves automatically once the Day 2 backend is connected.</li>
+    <li>Near the end, click <strong>Submit for Review</strong>, then <strong>Download my work as PDF</strong>.</li>
+    <li>Upload the PDF to Google Classroom for today's credit.</li>
+  </ol>
+</div>
+
+<div class="language-key">
+  <strong>Vocabulary & language supports:</strong>
+  Tier 3 investing words appear in picture cards before you use them.
+  Tier 2 academic words have a <span class="tier2-word" style="cursor:default;">dotted underline</span> — click the word to see a student-friendly definition.
+  For longer written responses, use the <strong>Sentence Frames</strong> button if a sentence starter would help.
+</div>
+
+<div class="id-bar">
+  <label for="student-id"><strong>Your Class Login Name:</strong></label>
+  <input id="student-id" class="id-input" type="text" placeholder="e.g. Maya4821 or MJ731">
+  <button type="button" onclick="loadState()">Load my saved work</button>
+  <span id="load-status" class="save-indicator"></span>
+</div>
+<div class="save-indicator" id="save-status"></div>
+
+<!-- 1 -->
+<h2>1. Do Now — You Have $10,000</h2>
+<span class="segment-tag">Walk-In · Independent</span>
+<div class="prompt-box">
+  You have <strong>$10,000 to invest for the future</strong>. You must divide it among three companies. You may put all $10,000 into one company if you want.<br><br>
+  <strong>Company A:</strong> large, <button type="button" class="tier2-word" data-def="well known and operating successfully for a long time" onclick="toggleTier2(this)">established</button> company with steady profits<br>
+  <strong>Company B:</strong> growing company whose future is less <button type="button" class="tier2-word" data-def="known or likely to happen; not doubtful" onclick="toggleTier2(this)">certain</button><br>
+  <strong>Company C:</strong> new company with a product that could become huge — or fail
+</div>
+<div class="money-grid">
+  <div class="money-box"><label class="field-label" for="allocA">Company A ($)</label><input type="number" id="allocA" min="0" step="1" placeholder="0"></div>
+  <div class="money-box"><label class="field-label" for="allocB">Company B ($)</label><input type="number" id="allocB" min="0" step="1" placeholder="0"></div>
+  <div class="money-box"><label class="field-label" for="allocC">Company C ($)</label><input type="number" id="allocC" min="0" step="1" placeholder="0"></div>
+</div>
+<div id="allocation-total" class="sum-box">Allocated: $0 of $10,000</div>
+<label class="field-label" for="doNowReason">Explain your <button type="button" class="tier2-word" data-def="the thinking and evidence you use to explain why" onclick="toggleTier2(this)">reasoning</button>: Why did you divide your money this way?</label>
+<textarea id="doNowReason" class="small" placeholder="Explain your reasoning before today's lesson changes your thinking..."></textarea><div class="lang-support">
+  <button type="button" data-frame1="I put $___ in Company __ because it seems ___. I put less/more in Company __ because ___." data-frame2="My allocation reflects my thinking about risk because ___. I chose to put more/less money in ___ since ___." onclick="showSentenceFrames('doNowReason',this.dataset.frame1,this.dataset.frame2)">Sentence Frames</button>
+  <div class="lang-frame" id="doNowReason-frame"></div>
+</div>
+
+<!-- 2 -->
+<h2>2. Would You Make This Loan?</h2>
+<span class="segment-tag">Hook · Think → Pair</span>
+<div class="prompt-box">
+  Three borrowers each want to borrow the same amount of money for the same amount of time. One is financially very strong, one is an established company, and one is struggling financially. The struggling borrower offers the highest interest rate.
+</div>
+<label class="field-label" for="loanChoice">Which kind of borrower would you be most willing to lend to?</label>
+<select id="loanChoice">
+  <option value="">Choose one...</option>
+  <option value="strong">Financially strong borrower — lower offered rate</option>
+  <option value="established">Established company — middle offered rate</option>
+  <option value="struggling">Struggling company — highest offered rate</option>
+</select>
+<label class="field-label" for="loanReason">Why wouldn't everyone automatically choose the borrower paying the highest rate?</label>
+<textarea id="loanReason" class="small" placeholder="Your first explanation..."></textarea><div class="lang-support">
+  <button type="button" data-frame1="I would choose ___ because ___. The highest rate may not be best because ___." data-frame2="I would consider both the interest rate and the borrower's risk. I would choose ___ because ___." onclick="showSentenceFrames('loanReason',this.dataset.frame1,this.dataset.frame2)">Sentence Frames</button>
+  <div class="lang-frame" id="loanReason-frame"></div>
+</div>
+
+<!-- 3 -->
+<h2>3. What Is a Bond? — Build the Mechanics</h2>
+<span class="segment-tag">Direct Instruction + Notebook</span>
+
+<div class="tier3-preview">
+  <div class="tier3-preview-title">Tier 3 preview — words you will use in this section</div>
+  <div class="tier3-cards">
+    <div class="tier3-card"><svg viewBox="0 0 64 64" role="img" aria-label="paper bond"><rect x="8" y="12" width="48" height="40" rx="4" fill="#eef3f8" stroke="#1B2A4A" stroke-width="2"/><path d="M16 24h30M16 31h24M16 38h18" stroke="#B08D2B" stroke-width="3"/><circle cx="48" cy="42" r="6" fill="#e4f4e6" stroke="#3F7D53" stroke-width="2"/></svg><div><strong>Bond</strong><span>A loan made by an investor to an issuer.</span></div></div>
+    <div class="tier3-card"><svg viewBox="0 0 64 64" role="img" aria-label="building"><path d="M12 25h40v27H12z" fill="#eef3f8" stroke="#1B2A4A" stroke-width="2"/><path d="M9 25l23-13 23 13" fill="none" stroke="#B08D2B" stroke-width="3"/><path d="M20 30v16M32 30v16M44 30v16" stroke="#1B2A4A" stroke-width="3"/></svg><div><strong>Issuer</strong><span>The borrower that sells the bond.</span></div></div>
+    <div class="tier3-card"><svg viewBox="0 0 64 64" role="img" aria-label="money"><rect x="10" y="17" width="44" height="30" rx="3" fill="#e4f4e6" stroke="#3F7D53" stroke-width="2"/><circle cx="32" cy="32" r="8" fill="#fff" stroke="#3F7D53" stroke-width="2"/><path d="M9 23h46M9 41h46" stroke="#3F7D53" stroke-width="2"/></svg><div><strong>Principal / Face Value</strong><span>The amount borrowed and scheduled to be repaid.</span></div></div>
+    <div class="tier3-card"><svg viewBox="0 0 64 64" role="img" aria-label="percent"><circle cx="32" cy="32" r="23" fill="#fbf6e9" stroke="#B08D2B" stroke-width="2"/><circle cx="23" cy="23" r="5" fill="#fff" stroke="#1B2A4A" stroke-width="2"/><circle cx="41" cy="41" r="5" fill="#fff" stroke="#1B2A4A" stroke-width="2"/><path d="M20 45L44 19" stroke="#1B2A4A" stroke-width="3"/></svg><div><strong>Coupon Rate</strong><span>The stated annual interest rate.</span></div></div>
+    <div class="tier3-card"><svg viewBox="0 0 64 64" role="img" aria-label="calendar"><rect x="10" y="14" width="44" height="40" rx="4" fill="#fff" stroke="#1B2A4A" stroke-width="2"/><path d="M10 24h44M20 9v10M44 9v10" stroke="#B08D2B" stroke-width="3"/><path d="M20 34h8M36 34h8M20 43h8M36 43h8" stroke="#1B2A4A" stroke-width="2"/></svg><div><strong>Maturity</strong><span>The date the principal is scheduled to be repaid.</span></div></div>
+    <div class="tier3-card"><svg viewBox="0 0 64 64" role="img" aria-label="government building"><path d="M8 25h48M13 25l19-12 19 12M14 49h36M18 28v18M28 28v18M38 28v18M48 28v18" fill="none" stroke="#1B2A4A" stroke-width="3"/><path d="M8 52h48" stroke="#B08D2B" stroke-width="3"/></svg><div><strong>U.S. Treasury Note</strong><span>Debt issued by the U.S. Treasury; a 10-year note matures in 10 years.</span></div></div>
+  </div>
+</div>
+
+<div class="prompt-box">
+  <strong>Core idea:</strong> When you buy a bond, you are <strong>lending money</strong> to an issuer. In return, the issuer promises to make agreed-upon interest payments and return the bond's principal (face value) at maturity.
+</div>
+
+<div class="teacher-dependent">
+  <strong>PAUSE FOR DIRECT INSTRUCTION.</strong><br>
+  Use the board/slides to walk through one bond from beginning to end:
+  <strong>Investor → lends principal → Issuer → pays interest → returns principal at maturity.</strong>
+  Students should not move on until the class has traced who gives money to whom, who owes whom, and what happens at maturity.
+</div>
+
+<div class="cards">
+  <div class="card"><h4>Investor</h4><p>The person or organization that buys the bond and lends the money.</p></div>
+  <div class="card"><h4>Issuer</h4><p>The government, company, or other organization borrowing the money.</p></div>
+  <div class="card"><h4>Principal / Face Value</h4><p>The amount borrowed that is promised back at maturity.</p></div>
+  <div class="card"><h4>Coupon Rate</h4><p>The stated annual interest rate used to determine interest payments.</p></div>
+  <div class="card"><h4>Maturity</h4><p>The date when the issuer is scheduled to repay the principal.</p></div>
+</div>
+
+<h3>Trace the Money</h3>
+<div class="check-row">
+  <div class="scenario">When an investor buys a newly issued bond, who is borrowing the money?</div>
+  <select id="bondTrace1">
+    <option value="">Choose...</option>
+    <option value="investor">The investor</option>
+    <option value="issuer">The issuer</option>
+  </select>
+</div>
+<div class="check-row">
+  <div class="scenario">What does the issuer promise to return at maturity?</div>
+  <select id="bondTrace2">
+    <option value="">Choose...</option>
+    <option value="principal">The principal / face value</option>
+    <option value="ownership">Company ownership</option>
+  </select>
+</div>
+<div class="check-row">
+  <div class="scenario">What is the investor receiving in exchange for lending money?</div>
+  <select id="bondTrace3">
+    <option value="">Choose...</option>
+    <option value="interest">Interest payments and repayment of principal if the issuer fulfills the promise</option>
+    <option value="votes">Voting rights in the company</option>
+  </select>
+</div>
+<button type="button" id="check-bondtrace-btn" onclick="checkBondTrace()">Check the Bond Flow</button>
+<div id="bondtrace-feedback" class="helper-panel" style="display:none;"></div>
+
+<h3>Put the Vocabulary in Your Own Words</h3>
+<div class="vocab-grid">
+  <div class="vocab-item"><label for="vocabBond">Bond</label><textarea id="vocabBond" placeholder="A bond is..."></textarea></div>
+  <div class="vocab-item"><label for="vocabIssuer">Issuer</label><textarea id="vocabIssuer" placeholder="The issuer is..."></textarea></div>
+  <div class="vocab-item"><label for="vocabPrincipal">Principal / Face Value</label><textarea id="vocabPrincipal" placeholder="This means..."></textarea></div>
+  <div class="vocab-item"><label for="vocabInterest">Interest / Coupon Rate</label><textarea id="vocabInterest" placeholder="This is..."></textarea></div>
+  <div class="vocab-item"><label for="vocabMaturity">Maturity</label><textarea id="vocabMaturity" placeholder="Maturity is..."></textarea></div>
+</div>
+<div class="callout"><strong>Core distinction:</strong> A stock is <strong>ownership</strong>. A bond is <strong>lending</strong>.</div>
+
+<h3>Simple Bond Calculation</h3>
+<div class="prompt-box">
+  You buy a <strong>$1,000 bond</strong> with a <strong>5% annual coupon rate</strong>. Assume it pays that amount once per year and you hold it for <strong>4 years</strong>.
+</div>
+<label class="field-label" for="bondAnnualInterest">1. How much interest does the bond pay each year?</label>
+<input type="number" id="bondAnnualInterest" min="0" step="0.01" placeholder="$">
+<label class="field-label" for="bondTotalInterest">2. How much total interest would you receive over 4 years?</label>
+<input type="number" id="bondTotalInterest" min="0" step="0.01" placeholder="$">
+<label class="field-label" for="bondMaturityReturn">3. At maturity, how much principal is scheduled to be returned?</label>
+<input type="number" id="bondMaturityReturn" min="0" step="0.01" placeholder="$">
+<button type="button" id="check-bondcalc-btn" onclick="checkBondCalculation()">Check My Bond Math</button>
+<div id="bondcalc-feedback" class="helper-panel" style="display:none;"></div>
+
+<h3>U.S. Treasury Securities — Government Borrowing</h3>
+<div class="teacher-dependent">
+  <strong>PAUSE FOR DIRECT INSTRUCTION.</strong><br>
+  Define a <strong>10-year U.S. Treasury note</strong>: a debt security issued by the U.S. Department of the Treasury that borrows money from investors for 10 years and pays interest along the way before returning the face value at maturity.
+</div>
+
+<div class="callout">
+  <strong>Why investors care:</strong> U.S. Treasuries are commonly treated as having very low default risk because they are backed by the U.S. government's ability to tax and borrow. They are not risk-free: their purchasing power can be hurt by inflation, and their market value can change when interest rates change.
+</div>
+
+<div class="prompt-box">
+  Open the <strong>U.S. Debt Clock</strong> and look at the current national debt:
+  <br><br>
+  <a href="https://www.usdebtclock.org/" target="_blank" rel="noopener"><strong>https://www.usdebtclock.org/</strong></a>
+  <br><br>
+  <strong>Question:</strong> When you see that enormous debt number, where did all that borrowed money come from?
+</div>
+<div class="language-key">
+  <strong>Speaking frames for the class discussion:</strong><br>
+  “I think some of the money came from ___ because ___.”<br>
+  “When someone buys a Treasury security, the investor ___ and the U.S. government ___.”
+</div>
+<label class="field-label" for="treasuryDebtIdea">Write your first idea before the class discussion.</label>
+<textarea id="treasuryDebtIdea" class="small" placeholder="Who lent the U.S. government this money?"></textarea><div class="lang-support">
+  <button type="button" data-frame1="I think the government borrowed this money from ___." data-frame2="One possible source of the government's borrowed money is ___ because ___." onclick="showSentenceFrames('treasuryDebtIdea',this.dataset.frame1,this.dataset.frame2)">Sentence Frames</button>
+  <div class="lang-frame" id="treasuryDebtIdea-frame"></div>
+</div>
+<div class="teacher-dependent">
+  <strong>DIRECT-INSTRUCTION CONNECTION:</strong> Much of federal borrowing happens by selling Treasury securities. Buyers can include individuals, banks, investment funds, pension funds, foreign investors and governments, the Federal Reserve, and government accounts that hold Treasury securities. The debt represents accumulated borrowing over time, not one single loan.
+</div>
+<label class="field-label" for="treasuryConnection">After the discussion: explain how Treasury securities connect investors to the national debt.</label>
+<textarea id="treasuryConnection" class="small" placeholder="The government borrows by..."></textarea><div class="lang-support">
+  <button type="button" data-frame1="The U.S. government borrows money by selling ___. The buyers are ___." data-frame2="Treasury securities connect investors to the national debt because investors ___ and the government ___." onclick="showSentenceFrames('treasuryConnection',this.dataset.frame1,this.dataset.frame2)">Sentence Frames</button>
+  <div class="lang-frame" id="treasuryConnection-frame"></div>
+</div>
+
+<!-- 4 -->
+<h2>4. Name Your Rate — Activity Wrap-Up</h2>
+<span class="segment-tag">After the Physical Card Activity</span>
+<div class="language-key">
+  <strong>Speaking frames:</strong><br>
+  “We think ___ should offer a higher rate because ___.”<br>
+  “If the issuer is riskier, investors may want ___ because ___.”<br>
+  “I agree/disagree because ___.”
+</div>
+
+<div class="teacher-dependent"><strong>Use the paper cards first.</strong> The borrower details and rate choices are intentionally not reproduced here.</div>
+<div class="prompt-box">Your group ranked bonds when <strong>risk</strong> changed, then again when <strong>length of time</strong> changed.</div>
+<label class="field-label" for="rateRiskWrap">Risk round: Which borrower did your group think should have to offer the highest rate, and why?</label>
+<textarea id="rateRiskWrap" class="small" placeholder="Record your group's reasoning..."></textarea><div class="lang-support">
+  <button type="button" data-frame1="The bond with more risk needed a ___ interest rate because ___." data-frame2="As the issuer's risk increased, our group thought the interest rate should ___ because investors ___." onclick="showSentenceFrames('rateRiskWrap',this.dataset.frame1,this.dataset.frame2)">Sentence Frames</button>
+  <div class="lang-frame" id="rateRiskWrap-frame"></div>
+</div>
+<label class="field-label" for="rateTimeWrap">Time round: What happened to the rate your group expected as the loan got longer? Why?</label>
+<textarea id="rateTimeWrap" class="small" placeholder="Record the pattern your group noticed..."></textarea><div class="lang-support">
+  <button type="button" data-frame1="When the loan lasted longer, we chose a ___ rate because ___." data-frame2="Our group noticed that a longer time commitment can affect the rate because ___." onclick="showSentenceFrames('rateTimeWrap',this.dataset.frame1,this.dataset.frame2)">Sentence Frames</button>
+  <div class="lang-frame" id="rateTimeWrap-frame"></div>
+</div>
+<label class="field-label" for="partnerIdea">Write one useful idea you heard from a partner or another group — not your own idea.</label>
+<textarea id="partnerIdea" class="small" placeholder="Someone else said..."></textarea><div class="lang-support">
+  <button type="button" data-frame1="Another person said ___. I agree/disagree because ___." data-frame2="A classmate's idea that changed or strengthened my thinking was ___ because ___." onclick="showSentenceFrames('partnerIdea',this.dataset.frame1,this.dataset.frame2)">Sentence Frames</button>
+  <div class="lang-frame" id="partnerIdea-frame"></div>
+</div>
+
+<!-- 5 -->
+<h2>5. Bond Risks — “Safer” Does Not Mean “No Risk”</h2>
+<span class="segment-tag">Substantial Risk Section · Scenarios</span>
+
+<div class="tier3-preview">
+  <div class="tier3-preview-title">Tier 3 preview — bond risks</div>
+  <div class="tier3-cards">
+    <div class="tier3-card"><svg viewBox="0 0 64 64" role="img" aria-label="missed payment"><rect x="12" y="13" width="40" height="36" rx="4" fill="#fcefed" stroke="#A3453B" stroke-width="2"/><path d="M20 23h22M20 31h16" stroke="#1B2A4A" stroke-width="2"/><path d="M25 42l14-14M39 42L25 28" stroke="#A3453B" stroke-width="4"/></svg><div><strong>Default / Credit Risk</strong><span>The issuer might not make promised payments.</span></div></div>
+    <div class="tier3-card"><svg viewBox="0 0 64 64" role="img" aria-label="rates changing"><path d="M12 48V16M12 48h42" stroke="#1B2A4A" stroke-width="2"/><path d="M18 40l10-8 8 4 14-17" fill="none" stroke="#B08D2B" stroke-width="4"/><path d="M45 19h5v5" fill="none" stroke="#B08D2B" stroke-width="3"/></svg><div><strong>Interest-Rate Risk</strong><span>Changing market rates can make an existing bond less attractive.</span></div></div>
+    <div class="tier3-card"><svg viewBox="0 0 64 64" role="img" aria-label="prices rising"><path d="M16 48V34M29 48V27M42 48V18" stroke="#1B2A4A" stroke-width="6"/><path d="M13 20l10-7 10 6 16-11" fill="none" stroke="#A3453B" stroke-width="3"/><path d="M44 8h5v5" fill="none" stroke="#A3453B" stroke-width="3"/></svg><div><strong>Inflation Risk</strong><span>Fixed payments may lose purchasing power as prices rise.</span></div></div>
+    <div class="tier3-card"><svg viewBox="0 0 64 64" role="img" aria-label="cash exchange"><rect x="10" y="20" width="30" height="24" rx="3" fill="#e4f4e6" stroke="#3F7D53" stroke-width="2"/><circle cx="25" cy="32" r="6" fill="#fff" stroke="#3F7D53" stroke-width="2"/><path d="M43 23h11l-4-4M54 41H43l4 4" fill="none" stroke="#1B2A4A" stroke-width="3"/></svg><div><strong>Liquidity Risk</strong><span>The bond may be difficult to sell quickly at a fair price.</span></div></div>
+  </div>
+</div>
+
+<div class="prompt-box">
+  Bonds are often described as less risky than stocks, but <strong>different bonds face different risks</strong>. Your job is to identify what could go wrong for the investor.
+</div>
+
+<div class="cards">
+  <div class="card"><h4>Default / Credit Risk</h4><p>The issuer may fail to make promised interest or principal payments.</p></div>
+  <div class="card"><h4>Interest-Rate Risk</h4><p>When new market rates rise, an existing lower-rate bond becomes less attractive.</p></div>
+  <div class="card"><h4>Inflation Risk</h4><p>Fixed dollar payments may buy less in the future if prices rise.</p></div>
+  <div class="card"><h4>Liquidity Risk</h4><p>You may have difficulty selling a bond quickly at a price you consider fair.</p></div>
+</div>
+
+<h3><button type="button" class="tier2-word" data-def="a situation used as an example" onclick="toggleTier2(this)">Scenario</button> Sort</h3>
+<div class="check-row">
+  <div class="scenario"><strong>A.</strong> A company that issued your bond runs out of cash and misses an interest payment.</div>
+  <select id="bondRisk1">
+    <option value="">Choose the main risk...</option>
+    <option value="default">Default / credit risk</option>
+    <option value="rate">Interest-rate risk</option>
+    <option value="inflation">Inflation risk</option>
+    <option value="liquidity">Liquidity risk</option>
+  </select>
+</div>
+<div class="check-row">
+  <div class="scenario"><strong>B.</strong> Your bond pays 3%, but new similar bonds begin paying 6%.</div>
+  <select id="bondRisk2">
+    <option value="">Choose the main risk...</option>
+    <option value="default">Default / credit risk</option>
+    <option value="rate">Interest-rate risk</option>
+    <option value="inflation">Inflation risk</option>
+    <option value="liquidity">Liquidity risk</option>
+  </select>
+</div>
+<div class="check-row">
+  <div class="scenario"><strong>C.</strong> You keep receiving the promised fixed payments, but prices for food, rent, and transportation rise quickly.</div>
+  <select id="bondRisk3">
+    <option value="">Choose the main risk...</option>
+    <option value="default">Default / credit risk</option>
+    <option value="rate">Interest-rate risk</option>
+    <option value="inflation">Inflation risk</option>
+    <option value="liquidity">Liquidity risk</option>
+  </select>
+</div>
+<div class="check-row">
+  <div class="scenario"><strong>D.</strong> You need cash immediately, but very few buyers are interested in your particular bond.</div>
+  <select id="bondRisk4">
+    <option value="">Choose the main risk...</option>
+    <option value="default">Default / credit risk</option>
+    <option value="rate">Interest-rate risk</option>
+    <option value="inflation">Inflation risk</option>
+    <option value="liquidity">Liquidity risk</option>
+  </select>
+</div>
+<button type="button" id="check-bondrisk-btn" onclick="checkBondRisks()">Check My Risk Sort</button>
+<div id="bondrisk-feedback" class="helper-panel" style="display:none;"></div>
+
+<h3><button type="button" class="tier2-word" data-def="look at two or more things to notice similarities and differences" onclick="toggleTier2(this)">Compare</button> Two Bonds</h3>
+<div class="prompt-box">
+  <strong>Bond A:</strong> 10-year U.S. Treasury note paying 4.2%<br>
+  <strong>Bond B:</strong> 10-year bond from a financially shaky company paying 8.5%
+  <br><br>
+  Both promise interest and repayment of principal. Why might Bond B need to offer a much higher rate?
+</div>
+<textarea id="bondRiskCompare" class="small" placeholder="Use risk and return in your explanation..."></textarea><div class="lang-support">
+  <button type="button" data-frame1="Bond B pays more because it has more ___ risk. An investor wants more return for ___." data-frame2="Bond B's higher rate may compensate investors for greater ___ risk. The higher return is connected to ___." onclick="showSentenceFrames('bondRiskCompare',this.dataset.frame1,this.dataset.frame2)">Sentence Frames</button>
+  <div class="lang-frame" id="bondRiskCompare-frame"></div>
+</div>
+
+<div class="warning-callout">
+  <strong>Important:</strong> A higher interest rate is not automatically “better.” It may be <button type="button" class="tier2-word" data-def="something received in return for taking on a cost, effort, or risk" onclick="toggleTier2(this)">compensation</button> for taking more risk.
+</div>
+
+<!-- 6 -->
+<h2>6. Quick Self-Check — Market Rates & Existing Bonds</h2>
+<span class="segment-tag">Plain-Code Self-Check</span>
+<p style="font-family:Arial,sans-serif;font-size:.88rem;color:#555;">Choose whether the existing bond becomes <strong>more attractive</strong> or <strong>less attractive</strong> compared with newly issued similar bonds. You get 3 checks. Early checks show only how many are correct.</p>
+<div class="check-row" id="rate-row-1">
+  <div class="scenario"><strong>Scenario 1:</strong> Your existing bond pays 5%. New similar bonds now pay 8%.</div>
+  <div class="choice-btns"><button type="button" data-rate="r1" data-choice="more" onclick="chooseRate('r1','more',this)">More attractive</button><button type="button" data-rate="r1" data-choice="less" onclick="chooseRate('r1','less',this)">Less attractive</button></div>
+</div>
+<div class="check-row" id="rate-row-2">
+  <div class="scenario"><strong>Scenario 2:</strong> Your existing bond pays 5%. New similar bonds now pay 3%.</div>
+  <div class="choice-btns"><button type="button" data-rate="r2" data-choice="more" onclick="chooseRate('r2','more',this)">More attractive</button><button type="button" data-rate="r2" data-choice="less" onclick="chooseRate('r2','less',this)">Less attractive</button></div>
+</div>
+<button id="check-rate-btn" type="button" onclick="checkRates()">Check My Two Answers</button>
+<span id="rate-attempt-label" class="try-first-note">3 checks remaining.</span>
+<div id="rate-feedback" class="helper-panel" style="display:none;"></div>
+<div class="callout"><strong>Keep the mental model simple:</strong> if new similar bonds pay more, an older lower-rate bond looks less attractive. If new similar bonds pay less, the older higher-rate bond looks more attractive.</div>
+
+<!-- 6 -->
+<h2>7. Stock or Bond? Build the Distinction</h2>
+<span class="segment-tag">After Partner Comparison</span>
+<p style="font-family:Arial,sans-serif;font-size:.88rem;color:#555;">Complete these three distinctions from today's discussion, then self-check.</p>
+<div class="check-row"><div class="scenario">Buying a stock means...</div><select id="sb1"><option value="">Choose...</option><option value="ownership">owning part of a company</option><option value="lending">lending money to an issuer</option></select></div>
+<div class="check-row"><div class="scenario">Buying a bond means...</div><select id="sb2"><option value="">Choose...</option><option value="ownership">owning part of a company</option><option value="lending">lending money to an issuer</option></select></div>
+<div class="check-row"><div class="scenario">At maturity, a bond issuer promises to...</div><select id="sb3"><option value="">Choose...</option><option value="principal">return the principal / face value</option><option value="stock">give the investor company ownership</option></select></div>
+<button type="button" id="check-sb-btn" onclick="checkStockBond()">Check My Distinctions</button>
+<div id="sb-feedback" class="helper-panel" style="display:none;"></div>
+
+<!-- 7 -->
+<h2>8. Return to Your $10,000 — What Happened?</h2>
+<span class="segment-tag">After the Live Reveal</span>
+<div class="teacher-dependent"><strong>Wait for the class reveal.</strong> Enter the percentage changes your teacher gives you. This page intentionally does not supply them ahead of time.</div>
+<div class="money-grid">
+  <div class="money-box"><label class="field-label" for="changeA">Company A change (%)</label><input type="number" id="changeA" step="0.1" placeholder="Enter reveal"></div>
+  <div class="money-box"><label class="field-label" for="changeB">Company B change (%)</label><input type="number" id="changeB" step="0.1" placeholder="Enter reveal"></div>
+  <div class="money-box"><label class="field-label" for="changeC">Company C change (%)</label><input type="number" id="changeC" step="0.1" placeholder="Enter reveal"></div>
+</div>
+<button type="button" onclick="calculatePortfolio()">Calculate What My Allocation Became</button>
+<div id="portfolio-results" class="calc-results" style="display:none;">
+  <div class="calc-result"><strong>Company A position</strong><span id="resultA">—</span></div>
+  <div class="calc-result"><strong>Company B position</strong><span id="resultB">—</span></div>
+  <div class="calc-result"><strong>Company C position</strong><span id="resultC">—</span></div>
+</div>
+<div id="portfolio-total-result" class="sum-box" style="display:none;"></div>
+<label class="field-label" for="portfolioImpact">What did this reveal teach you about depending heavily on one company?</label>
+<textarea id="portfolioImpact" class="small" placeholder="Use your own allocation as evidence..."></textarea><div class="lang-support">
+  <button type="button" data-frame1="My portfolio changed by ___. This shows that ___." data-frame2="My allocation was affected most by ___ because ___. This illustrates the risk of ___." onclick="showSentenceFrames('portfolioImpact',this.dataset.frame1,this.dataset.frame2)">Sentence Frames</button>
+  <div class="lang-frame" id="portfolioImpact-frame"></div>
+</div>
+
+<!-- 8 -->
+<h2>9. Naming What You Found — Portfolio & Diversification</h2>
+<span class="segment-tag">After Class Debrief</span>
+
+<div class="tier3-preview">
+  <div class="tier3-preview-title">Tier 3 preview — portfolio thinking</div>
+  <div class="tier3-cards">
+    <div class="tier3-card"><svg viewBox="0 0 64 64" role="img" aria-label="portfolio folder"><path d="M10 18h18l5 6h21v28H10z" fill="#eef3f8" stroke="#1B2A4A" stroke-width="2"/><path d="M18 42V34M28 42V28M38 42V31M48 42V25" stroke="#B08D2B" stroke-width="4"/></svg><div><strong>Portfolio</strong><span>All of the investments a person or organization owns together.</span></div></div>
+    <div class="tier3-card"><svg viewBox="0 0 64 64" role="img" aria-label="diversified pie chart"><circle cx="32" cy="32" r="23" fill="#fff" stroke="#1B2A4A" stroke-width="2"/><path d="M32 32V9A23 23 0 0 1 52 43z" fill="#e4f4e6"/><path d="M32 32L52 43A23 23 0 0 1 16 49z" fill="#fbf6e9"/><path d="M32 32L16 49A23 23 0 0 1 32 9z" fill="#eef3f8"/></svg><div><strong>Diversification</strong><span>Spreading investments across different holdings or asset types.</span></div></div>
+    <div class="tier3-card"><svg viewBox="0 0 64 64" role="img" aria-label="risk return balance"><path d="M32 12v38M16 24h32" stroke="#1B2A4A" stroke-width="3"/><path d="M16 24l-8 14h16zM48 24l-8 14h16z" fill="#fbf6e9" stroke="#B08D2B" stroke-width="2"/></svg><div><strong>Risk & Return</strong><span>Risk is the chance of loss; return is the gain or loss on an investment.</span></div></div>
+  </div>
+</div>
+<div class="vocab-grid">
+  <div class="vocab-item"><label for="vocabPortfolio">Portfolio — in your own words</label><textarea id="vocabPortfolio" placeholder="A portfolio is..."></textarea></div>
+  <div class="vocab-item"><label for="vocabDiversification">Diversification — in your own words</label><textarea id="vocabDiversification" placeholder="Diversification means..."></textarea></div>
+  <div class="vocab-item"><label for="vocabRisk">Risk — in your own words</label><textarea id="vocabRisk" placeholder="Investment risk means..."></textarea></div>
+  <div class="vocab-item"><label for="vocabReturn">Return — in your own words</label><textarea id="vocabReturn" placeholder="Investment return means..."></textarea></div>
+</div>
+<div class="warning-callout"><strong>Important:</strong> Diversification can reduce risk. It does <strong>not</strong> guarantee that a portfolio cannot lose money.</div>
+
+<!-- 10 -->
+<h2>10. Risk–Reward Continuum — Talk First, Then Record</h2>
+<span class="segment-tag">Physical Group Activity · 6 minutes</span>
+
+<div class="teacher-dependent">
+  <strong>DO THIS WITH YOUR GROUP FIRST.</strong><br>
+  Place the six investment cards on the class risk–reward continuum. Your goal is not to find one perfect order. Your goal is to <strong>justify</strong> your placement using what you know about stocks, bonds, issuers, default risk, and possible return.
+</div>
+
+<div class="language-key">
+  <strong>Speaking frames for your group:</strong><br>
+  “We placed ___ as more/less risky than ___ because ___.”<br>
+  “We think ___ could offer a higher return because ___.”<br>
+  “I agree/disagree with that placement because ___.”
+</div>
+
+<label class="field-label" for="continuumEvidence">After the discussion: choose <strong>one placement your group debated</strong>. Where did you place it, and what evidence or reasoning supported the decision?</label>
+<textarea id="continuumEvidence" class="small" placeholder="We debated... We placed it... because..."></textarea>
+<div class="lang-support">
+  <button type="button" data-frame1="We debated where to place ___. We placed it ___ because ___." data-frame2="Our group compared ___ with ___. The evidence that mattered most was ___ because ___." onclick="showSentenceFrames('continuumEvidence',this.dataset.frame1,this.dataset.frame2)">Sentence Frames</button>
+  <div class="lang-frame" id="continuumEvidence-frame"></div>
+</div>
+
+<!-- 11 --><!-- 11 -->
+<h2>11. Individual Synthesis — Today's Exit Ticket</h2>
+<span class="segment-tag">Individual · AI-Coached · 4 minutes</span>
+
+<div class="prompt-box">
+  <strong>Maya says:</strong> “I'm diversified because I own 10 different investments.”
+  <br><br>
+  What additional information would you need before deciding whether Maya is actually well diversified?
+  In your answer, explain how <strong>stocks, bonds, and different types of risk</strong> could affect your decision.
+</div>
+
+<div class="language-key">
+  <strong>Speaking rehearsal:</strong> Before you type, tell a partner one sentence using this frame:<br>
+  “The number of investments is not enough to know whether Maya is diversified because ___.”
+</div>
+
+<label class="field-label" for="mayaReflection">Write your response.</label>
+<textarea id="mayaReflection" placeholder="I would need to know... Stocks and bonds... One risk that matters is..."></textarea>
+<div class="lang-support">
+  <button type="button" data-frame1="I need to know what Maya owns. If the investments are all ___, she may still have ___ risk. Stocks and bonds are different because ___." data-frame2="The number of investments alone does not prove diversification. I would need information about ___ because ___. Including different assets may reduce ___ risk, but it cannot ___." onclick="showSentenceFrames('mayaReflection',this.dataset.frame1,this.dataset.frame2)">Sentence Frames</button>
+  <div class="lang-frame" id="mayaReflection-frame"></div>
+</div>
+
+<div class="ai-box">
+  <strong>AI Coach — this is the one coached response today.</strong><br>
+  Write your own answer first. Then use the coach once to strengthen your reasoning.
+  <br>
+  <button type="button" class="ai" id="ai-btn" onclick="checkMayaReflection()">Get AI Coaching</button>
+  <div id="feedback-maya" class="helper-panel" style="display:none;"></div>
+</div>
+
+<h2>Finishing Today's Class</h2>
+<div class="prompt-box">
+  <strong>Complete these steps in order:</strong>
+  <ol>
+    <li><strong>Submit for Review first.</strong> Click the button below and read the completion message and any feedback that appears.</li>
+    <li><strong>Download your PDF second.</strong> After you have submitted for review, click <em>Download my work as PDF</em>. The completion percentage and review comments will appear at the top of the PDF.</li>
+    <li><strong>Upload the PDF to Google Classroom.</strong> Open today's Day 2 assignment, attach the PDF you just downloaded, and click <em>Turn in</em>.</li>
+  </ol>
+</div>
+<div>
+  <button type="button" class="primary" id="submit-btn" onclick="submitWork()">1. Submit for Review</button>
+  <button type="button" onclick="downloadWork()">2. Download my work as PDF</button>
+</div>
+<div id="completion-area"></div>
+<div class="try-first-note"><strong>Final step:</strong> attach the downloaded PDF to today's assignment in Google Classroom and turn it in.</div>
+<div id="print-summary"></div>
+
+<script>
+// ============================================================
+// CONFIG — replace BOTH values after Day 2 Apps Script is deployed.
+// ============================================================
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwiUl20KDbxl4VFUO5gFDPXj8DFujY4oIGStq0vnhGb6WjaI_qjxfvk9k6b10VxT4mouQ/exec';
+const SHARED_SECRET = '6855e60c0dc513832792b5691343ff78514432c19c9d3010';
+const MAX_CHECK_ATTEMPTS = 3;
+
+let guidedAttempts = { maya: 0 };
+let rateAnswers = {};
+let rateAttempts = 0;
+let rateRevealed = false;
+let stockBondAttempts = 0;
+let portfolioCheckAttempts = 0;
+let portfolioCheckRevealed = false;
+let lastCalculatedPortfolio = null;
+
+function val(id){ const el=document.getElementById(id); return el ? el.value : ''; }
+function num(id){ const n=parseFloat(String(val(id)).replace(/[$,\s]/g,'')); return Number.isFinite(n)?n:0; }
+function money(n){ return '$'+Number(n||0).toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2}); }
+function escapeHtml(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+
+// ---------- Vocabulary + language supports ----------
+function toggleTier2(el){
+  const next=el.nextElementSibling;
+  if(next && next.classList.contains('tier2-def')){
+    next.remove();
+    return;
+  }
+  document.querySelectorAll('.tier2-def').forEach(x=>x.remove());
+  const span=document.createElement('span');
+  span.className='tier2-def';
+  span.textContent=el.dataset.def || '';
+  el.insertAdjacentElement('afterend',span);
+}
+function showSentenceFrames(targetId,frame1,frame2){
+  const panel=document.getElementById(targetId+'-frame');
+  if(!panel) return;
+  if(panel.style.display==='block'){
+    panel.style.display='none';
+    return;
+  }
+  panel.style.display='block';
+  panel.innerHTML='<strong>Sentence frames:</strong><br>• '+escapeHtml(frame1)+'<br>• '+escapeHtml(frame2);
+}
+
+// ---------- Do Now allocation ----------
+function updateAllocationTotal(){
+  const total=num('allocA')+num('allocB')+num('allocC');
+  const box=document.getElementById('allocation-total');
+  box.textContent='Allocated: '+money(total)+' of $10,000.00';
+  box.classList.remove('good','bad');
+  if(Math.abs(total-10000)<0.01) box.classList.add('good');
+  else if(total>0) box.classList.add('bad');
+}
+
+// ---------- "Try first" ----------
+function wireTryFirst(inputId,buttonId,minChars){
+  const input=document.getElementById(inputId), btn=document.getElementById(buttonId);
+  if(!input||!btn) return;
+  const update=()=>{ btn.disabled=input.value.trim().length<minChars; };
+  update(); input.addEventListener('input',update);
+}
+
+// ---------- Paste blocking on free-write fields ----------
+const ALL_TEXT_FIELDS=[
+  'doNowReason','loanReason','vocabBond','vocabIssuer','vocabPrincipal','vocabInterest','vocabMaturity',
+  'rateRiskWrap','rateTimeWrap','partnerIdea','portfolioImpact','vocabPortfolio','vocabDiversification','vocabRisk','vocabReturn',
+  'continuumEvidence','mayaReflection'
+];
+
+// ---------- Backend ----------
+async function callBackend(action,extra,opts){
+  const silent=opts&&opts.silent;
+  const studentId=document.getElementById('student-id').value.trim();
+  if(!studentId){ if(!silent) alert('Enter your class login name first.'); return null; }
+  if(APPS_SCRIPT_URL.indexOf('PASTE_DAY2_')===0){
+    if(!silent) alert('The Day 2 Apps Script URL has not been added yet.');
+    return null;
+  }
+  const body=Object.assign({secret:SHARED_SECRET,action:action,studentId:studentId},extra||{});
+  const maxAttempts=silent?5:3;
+  let lastErr=null;
+  for(let attempt=1;attempt<=maxAttempts;attempt++){
+    try{
+      const res=await fetch(APPS_SCRIPT_URL,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(body)});
+      const rawText=await res.text();
+      try{ return JSON.parse(rawText); } catch(err){ lastErr=err; }
+    }catch(err){ lastErr=err; }
+    if(attempt<maxAttempts){ await new Promise(r=>setTimeout(r,700*attempt+Math.random()*300)); }
+  }
+  if(!silent) alert('The server is busy — please try again in a moment.');
+  console.error('callBackend failed:',lastErr);
+  return null;
+}
+
+// ---------- Rate self-check ----------
+const RATE_KEY={r1:'less',r2:'more'};
+function chooseRate(id,choice,btn){
+  if(rateRevealed) return;
+  rateAnswers[id]=choice;
+  document.querySelectorAll('[data-rate="'+id+'"]').forEach(b=>b.classList.remove('selected'));
+  btn.classList.add('selected');
+  scheduleAutoSave();
+}
+function checkRates(){
+  if(rateRevealed) return;
+  rateAttempts++;
+  const correct=Object.keys(RATE_KEY).filter(k=>rateAnswers[k]===RATE_KEY[k]).length;
+  const panel=document.getElementById('rate-feedback'); panel.style.display='block';
+  if(rateAttempts>=MAX_CHECK_ATTEMPTS){
+    rateRevealed=true;
+    panel.innerHTML='Final check: '+correct+' of 2 correct.<br><strong>Scenario 1:</strong> less attractive — new bonds pay more.<br><strong>Scenario 2:</strong> more attractive — the existing 5% rate now beats new 3% bonds.';
+    document.getElementById('check-rate-btn').disabled=true;
+  }else{
+    panel.textContent='You have '+correct+' of 2 correct. Reconsider the comparison before checking again.';
+  }
+  document.getElementById('rate-attempt-label').textContent=rateRevealed?'Answers revealed.':(MAX_CHECK_ATTEMPTS-rateAttempts)+' check(s) remaining.';
+  scheduleAutoSave();
+}
+
+// ---------- Stock vs bond self-check ----------
+function checkStockBond(){
+  stockBondAttempts++;
+  const answers=[val('sb1')==='ownership',val('sb2')==='lending',val('sb3')==='principal'];
+  const count=answers.filter(Boolean).length;
+  const panel=document.getElementById('sb-feedback'); panel.style.display='block';
+  if(count===3){ panel.textContent='3 of 3 correct — ownership and lending are clearly separated.'; document.getElementById('check-sb-btn').disabled=true; }
+  else if(stockBondAttempts>=MAX_CHECK_ATTEMPTS){ panel.innerHTML='Final check: '+count+' of 3 correct.<br>Stock = ownership. Bond = lending. At maturity, the issuer promises to return principal / face value.'; document.getElementById('check-sb-btn').disabled=true; }
+  else panel.textContent='You have '+count+' of 3 correct. Revisit the ownership-vs.-lending distinction and try again.';
+  scheduleAutoSave();
+}
+
+
+// ---------- Bond mechanics checks ----------
+function checkBondTrace(){
+  const answers=[val('bondTrace1'),val('bondTrace2'),val('bondTrace3')];
+  const correct=(answers[0]==='issuer'?1:0)+(answers[1]==='principal'?1:0)+(answers[2]==='interest'?1:0);
+  const panel=document.getElementById('bondtrace-feedback');
+  panel.style.display='block';
+  panel.innerHTML=correct===3
+    ? '<strong>3 of 3 correct.</strong> The investor lends; the issuer borrows; the issuer promises interest and repayment of principal.'
+    : '<strong>'+correct+' of 3 correct.</strong> Re-trace the money: who gives money first, who owes it back, and what is returned at maturity?';
+  scheduleAutoSave();
+}
+
+function checkBondCalculation(){
+  const annual=parseFloat(val('bondAnnualInterest'));
+  const total=parseFloat(val('bondTotalInterest'));
+  const principal=parseFloat(val('bondMaturityReturn'));
+  let correct=0;
+  if(Math.abs(annual-50)<0.01) correct++;
+  if(Math.abs(total-200)<0.01) correct++;
+  if(Math.abs(principal-1000)<0.01) correct++;
+  const panel=document.getElementById('bondcalc-feedback');
+  panel.style.display='block';
+  if(correct===3){
+    panel.innerHTML='<strong>3 of 3 correct.</strong> $1,000 × 5% = $50 per year; $50 × 4 = $200 total interest; $1,000 principal is scheduled to return at maturity.';
+  }else{
+    panel.innerHTML='<strong>'+correct+' of 3 correct.</strong> Start with annual interest: face value × coupon rate. Then multiply annual interest by 4 years. Principal is separate from interest.';
+  }
+  scheduleAutoSave();
+}
+
+function checkBondRisks(){
+  const answers=[val('bondRisk1'),val('bondRisk2'),val('bondRisk3'),val('bondRisk4')];
+  const key=['default','rate','inflation','liquidity'];
+  let correct=0; answers.forEach((a,i)=>{if(a===key[i]) correct++;});
+  const panel=document.getElementById('bondrisk-feedback');
+  panel.style.display='block';
+  panel.innerHTML=correct===4
+    ? '<strong>4 of 4 correct.</strong> Bonds can face default, interest-rate, inflation, and liquidity risk.'
+    : '<strong>'+correct+' of 4 correct.</strong> Re-read what changes in each scenario: the issuer, market rates, purchasing power, or ability to sell.';
+  scheduleAutoSave();
+}
+
+// ---------- Portfolio calculation ----------
+function calculatePortfolio(){
+  const allocation=[num('allocA'),num('allocB'),num('allocC')];
+  const changes=[num('changeA'),num('changeB'),num('changeC')];
+  if(allocation.every(v=>v===0)){ alert('Enter your original $10,000 allocation first.'); return; }
+  if(['changeA','changeB','changeC'].some(id=>val(id).trim()==='')){ alert('Wait for the class reveal, then enter all three percentage changes.'); return; }
+  const after=allocation.map((v,i)=>v*(1+changes[i]/100));
+  const total=after.reduce((a,b)=>a+b,0);
+  lastCalculatedPortfolio={after,total,changes};
+  document.getElementById('resultA').textContent=money(after[0]);
+  document.getElementById('resultB').textContent=money(after[1]);
+  document.getElementById('resultC').textContent=money(after[2]);
+  document.getElementById('portfolio-results').style.display='grid';
+  const totalBox=document.getElementById('portfolio-total-result');
+  totalBox.style.display='block';
+  totalBox.textContent='Your $10,000 allocation is now worth '+money(total)+' — a change of '+money(total-10000)+'.';
+  scheduleAutoSave();
+}
+
+// ---------- Portfolio deterministic self-check ----------
+const PF_KEY={pf1:'A',pf2:'C',pf3:'no'};
+function checkPortfolioQuestions(){
+  if(portfolioCheckRevealed) return;
+  portfolioCheckAttempts++;
+  const correct=Object.keys(PF_KEY).filter(k=>val(k)===PF_KEY[k]).length;
+  const panel=document.getElementById('pf-feedback'); panel.style.display='block';
+  if(portfolioCheckAttempts>=MAX_CHECK_ATTEMPTS){
+    portfolioCheckRevealed=true;
+    panel.innerHTML='Final check: '+correct+' of 3 correct.<br><strong>1:</strong> Portfolio A. <strong>2:</strong> Portfolio C. <strong>3:</strong> No — several holdings can still be concentrated in the same industry or risk.';
+    document.getElementById('check-pf-btn').disabled=true;
+  }else{
+    panel.textContent='You have '+correct+' of 3 correct. Think about concentration: how much can one company or one industry affect the whole portfolio?';
+  }
+  document.getElementById('pf-attempt-label').textContent=portfolioCheckRevealed?'Answers revealed.':(MAX_CHECK_ATTEMPTS-portfolioCheckAttempts)+' check(s) remaining.';
+  scheduleAutoSave();
+}
+
+// ---------- ONE AI-coached section ----------
+async function checkMayaReflection(){
+  const answer=val('mayaReflection').trim();
+  const panel=document.getElementById('feedback-maya');
+  if(!answer){ alert('Write your answer first.'); return; }
+  if(guidedAttempts.maya>=MAX_CHECK_ATTEMPTS){
+    panel.style.display='block'; panel.textContent="You've checked this a few times — trust your best answer and move on."; return;
+  }
+  guidedAttempts.maya++;
+  panel.style.display='block'; panel.innerHTML='<span class="locked">Thinking...</span>';
+  const data=await callBackend('guided_check',{
+    questionKey:'maya_diversification',
+    studentAnswer:answer,
+    attemptNumber:guidedAttempts.maya,
+    promptText:'Maya says she is diversified because she owns 10 different investments. What additional information is needed to decide whether she is actually well diversified, and why does owning many investments not automatically eliminate risk?',
+    lessonContext:'Students learned that diversification reduces concentration risk but does not eliminate loss. Strong reasoning considers what the investments are, industries/assets/issuers represented, and whether the holdings share the same risks.'
+  });
+  if(!data){ panel.style.display='none'; return; }
+  panel.textContent=data.reply||'No response.';
+  scheduleAutoSave();
+}
+
+// ---------- Autosave ----------
+let saveTimer=null;
+function scheduleAutoSave(){ clearTimeout(saveTimer); saveTimer=setTimeout(saveState,4000); }
+const AUTOSAVE_FIELDS=ALL_TEXT_FIELDS.concat([
+  'allocA','allocB','allocC','loanChoice','changeA','changeB','changeC','sb1','sb2','sb3'
+]);
+
+function collectState(){
+  return {
+    doNow:{allocA:val('allocA'),allocB:val('allocB'),allocC:val('allocC'),reason:val('doNowReason')},
+    loanHook:{choice:val('loanChoice'),reason:val('loanReason')},
+    bondVocab:{bond:val('vocabBond'),issuer:val('vocabIssuer'),principal:val('vocabPrincipal'),interest:val('vocabInterest'),maturity:val('vocabMaturity')},
+    bondMechanics:{
+      trace1:val('bondTrace1'),trace2:val('bondTrace2'),trace3:val('bondTrace3'),
+      annualInterest:val('bondAnnualInterest'),totalInterest:val('bondTotalInterest'),maturityReturn:val('bondMaturityReturn')
+    },
+    treasury:{debtIdea:val('treasuryDebtIdea'),connection:val('treasuryConnection')},
+    nameYourRate:{riskWrap:val('rateRiskWrap'),timeWrap:val('rateTimeWrap'),partnerIdea:val('partnerIdea')},
+    bondRisks:{risk1:val('bondRisk1'),risk2:val('bondRisk2'),risk3:val('bondRisk3'),risk4:val('bondRisk4'),compare:val('bondRiskCompare')},
+    rateCheck:{answers:rateAnswers,attempts:rateAttempts,revealed:rateRevealed},
+    stockBondCheck:{sb1:val('sb1'),sb2:val('sb2'),sb3:val('sb3'),attempts:stockBondAttempts},
+    portfolioReveal:{changeA:val('changeA'),changeB:val('changeB'),changeC:val('changeC'),impact:val('portfolioImpact'),calculated:lastCalculatedPortfolio},
+    diversificationVocab:{portfolio:val('vocabPortfolio'),diversification:val('vocabDiversification'),risk:val('vocabRisk'),return:val('vocabReturn')},
+    continuum:{evidence:val('continuumEvidence')},
+    synthesis:{maya:val('mayaReflection'),guidedAttempts:guidedAttempts}
+  };
+}
+
+async function saveState(){
+  const status=document.getElementById('save-status');
+  const data=await callBackend('save_state',collectState(),{silent:true});
+  if(data&&data.saved&&status) status.textContent='Saved '+new Date().toLocaleTimeString();
+}
+
+function setValue(id,value){ const el=document.getElementById(id); if(el) el.value=value||''; }
+async function loadState(){
+  const status=document.getElementById('load-status'); status.textContent='Loading...';
+  const data=await callBackend('load_state',{});
+  if(!data||!data.found){ status.textContent='No saved work found yet — start with the Do Now.'; return; }
+
+  const d=data.doNow||{};
+  setValue('allocA',d.allocA);setValue('allocB',d.allocB);setValue('allocC',d.allocC);setValue('doNowReason',d.reason);updateAllocationTotal();
+
+  const lh=data.loanHook||{};
+  setValue('loanChoice',lh.choice);setValue('loanReason',lh.reason);
+
+  const bv=data.bondVocab||{};
+  setValue('vocabBond',bv.bond);setValue('vocabIssuer',bv.issuer);setValue('vocabPrincipal',bv.principal);setValue('vocabInterest',bv.interest);setValue('vocabMaturity',bv.maturity);
+
+  const bm=data.bondMechanics||{};
+  setValue('bondTrace1',bm.trace1);setValue('bondTrace2',bm.trace2);setValue('bondTrace3',bm.trace3);
+  setValue('bondAnnualInterest',bm.annualInterest);setValue('bondTotalInterest',bm.totalInterest);setValue('bondMaturityReturn',bm.maturityReturn);
+
+  const tr=data.treasury||{};
+  setValue('treasuryDebtIdea',tr.debtIdea);setValue('treasuryConnection',tr.connection);
+
+  const nr=data.nameYourRate||{};
+  setValue('rateRiskWrap',nr.riskWrap);setValue('rateTimeWrap',nr.timeWrap);setValue('partnerIdea',nr.partnerIdea);
+
+  const br=data.bondRisks||{};
+  setValue('bondRisk1',br.risk1);setValue('bondRisk2',br.risk2);setValue('bondRisk3',br.risk3);setValue('bondRisk4',br.risk4);setValue('bondRiskCompare',br.compare);
+
+  const rc=data.rateCheck||{};
+  rateAnswers=rc.answers||{};rateAttempts=rc.attempts||0;rateRevealed=!!rc.revealed;renderRateChoices();
+
+  const sb=data.stockBondCheck||{};
+  setValue('sb1',sb.sb1);setValue('sb2',sb.sb2);setValue('sb3',sb.sb3);stockBondAttempts=sb.attempts||0;
+
+  const pr=data.portfolioReveal||{};
+  setValue('changeA',pr.changeA);setValue('changeB',pr.changeB);setValue('changeC',pr.changeC);setValue('portfolioImpact',pr.impact);
+  lastCalculatedPortfolio=pr.calculated||null;if(lastCalculatedPortfolio) restorePortfolioCalc();
+
+  const dv=data.diversificationVocab||{};
+  setValue('vocabPortfolio',dv.portfolio);setValue('vocabDiversification',dv.diversification);setValue('vocabRisk',dv.risk);setValue('vocabReturn',dv.return);
+
+  const ct=data.continuum||{};
+  setValue('continuumEvidence',ct.evidence);
+
+  const sy=data.synthesis||{};
+  setValue('mayaReflection',sy.maya);guidedAttempts=sy.guidedAttempts||{maya:0};
+
+  status.textContent='Work loaded.';
+}
+function renderRateChoices(){
+  Object.keys(rateAnswers).forEach(id=>{
+    document.querySelectorAll('[data-rate="'+id+'"]').forEach(b=>b.classList.toggle('selected',b.dataset.choice===rateAnswers[id]));
+  });
+  document.getElementById('rate-attempt-label').textContent=rateRevealed?'Answers revealed.':(MAX_CHECK_ATTEMPTS-rateAttempts)+' check(s) remaining.';
+  if(rateRevealed) document.getElementById('check-rate-btn').disabled=true;
+}
+function restorePortfolioCalc(){
+  if(!lastCalculatedPortfolio||!lastCalculatedPortfolio.after) return;
+  document.getElementById('resultA').textContent=money(lastCalculatedPortfolio.after[0]);
+  document.getElementById('resultB').textContent=money(lastCalculatedPortfolio.after[1]);
+  document.getElementById('resultC').textContent=money(lastCalculatedPortfolio.after[2]);
+  document.getElementById('portfolio-results').style.display='grid';
+  const totalBox=document.getElementById('portfolio-total-result');totalBox.style.display='block';
+  totalBox.textContent='Your $10,000 allocation is now worth '+money(lastCalculatedPortfolio.total)+' — a change of '+money(lastCalculatedPortfolio.total-10000)+'.';
+}
+
+// ---------- Submit ----------
+async function submitWork(){
+  const btn=document.getElementById('submit-btn'); btn.disabled=true; btn.textContent='Checking your work...';
+  const data=await callBackend('reflect_check',collectState());
+  btn.disabled=false; btn.textContent='Submit for Review';
+  const area=document.getElementById('completion-area');
+  if(!data){ area.innerHTML=''; return; }
+  if(data.error){ area.innerHTML='<div class="completion-banner incomplete">'+escapeHtml(data.error)+'</div>'; return; }
+  window.lastReflectResult=data;
+  const cls=data.complete?'pass':'incomplete';
+  const heading=data.complete?'Complete ('+data.passedCount+'/'+data.total+') — nice work today.':'Not quite complete yet ('+data.passedCount+'/'+data.total+')';
+  const labels={doNow:'Do Now allocation + reasoning',loanHook:'Loan hook',bondVocab:'Bond vocabulary',bondMechanics:'Bond mechanics + calculation',treasury:'U.S. Treasury connection',nameYourRate:'Name Your Rate wrap-up',bondRisks:'Bond risk scenarios',rateCheck:'Market-rate self-check',stockBondCheck:'Stock vs. bond check',portfolioReveal:'Portfolio reveal + reflection',diversificationVocab:'Portfolio/diversification vocabulary',continuum:'Risk–reward continuum reflection',synthesis:'Individual synthesis / exit ticket'};
+  let checklistHtml='';
+  if(!data.complete&&data.checklist){ checklistHtml='<ul>';Object.keys(data.checklist).forEach(k=>{if(!data.checklist[k]) checklistHtml+='<li>'+(labels[k]||k)+'</li>';});checklistHtml+='</ul>'; }
+  let feedbackHtml='';
+  if(data.feedback){ feedbackHtml='<div class="feedback-box"><h4>Strength</h4><p>'+escapeHtml(data.feedback.strengths)+'</p><h4>One area to improve</h4><p>'+escapeHtml(data.feedback.improve)+'</p></div>'; }
+  else if(data.feedbackGenerated===false){ feedbackHtml='<div class="feedback-box">Practice feedback is unavailable right now; your completion status is still recorded.</div>'; }
+  area.innerHTML='<div class="completion-banner '+cls+'"><strong>'+heading+'</strong>'+checklistHtml+'</div>'+feedbackHtml;
+}
+
+// ---------- Download ----------
+function downloadWork(){
+  const studentId=document.getElementById('student-id').value.trim()||'(no login name entered)';
+  const result=window.lastReflectResult;
+  let banner='<div class="p-banner-incomplete"><div class="p-percent">Completion: not yet calculated</div><strong>Not yet submitted for review.</strong> Submit first so completion percentage appears here.</div>';
+  if(result){
+    const cls=result.complete?'p-banner-pass':'p-banner-incomplete';
+    const pct=result.total ? Math.round((result.passedCount/result.total)*100) : 0;
+    const heading=result.complete?'COMPLETION STATUS: COMPLETE':'COMPLETION STATUS: INCOMPLETE';
+    banner='<div class="'+cls+'"><div class="p-percent">Completion: '+pct+'%</div><strong>'+heading+' — '+result.passedCount+'/'+result.total+' required sections complete</strong></div>';
+    // Review comments are placed immediately below the completion banner for quick grading.
+  }
+  const block=(label,id)=>'<div class="p-label">'+label+'</div><div class="p-block">'+(escapeHtml(val(id))||'(blank)')+'</div>';
+  let topReview='';
+  if(result && result.feedback){
+    topReview='<div class="p-review-top"><strong>Review comments</strong><br><strong>Strength:</strong> '+escapeHtml(result.feedback.strengths)+'<br><strong>One area to improve:</strong> '+escapeHtml(result.feedback.improve)+'</div>';
+  } else if(result && result.feedbackGenerated===false){
+    topReview='<div class="p-review-top"><strong>Review comments:</strong> Practice feedback was unavailable; completion status was still recorded.</div>';
+  }
+  const html=`
+    ${banner}${topReview}
+    <h1>Unit 3, Day 2: Bonds, Risk & Diversification — ${escapeHtml(studentId)}</h1>
+    <div class="p-meta">Class login: ${escapeHtml(studentId)} · Printed: ${new Date().toLocaleString()}</div>
+    <h2>1. Do Now</h2><div class="p-block">A: ${escapeHtml(val('allocA'))||'0'} · B: ${escapeHtml(val('allocB'))||'0'} · C: ${escapeHtml(val('allocC'))||'0'}</div>${block('Reasoning','doNowReason')}
+    <h2>2. Would You Make This Loan?</h2>${block('Borrower chosen','loanChoice')}${block('Why not simply choose the highest rate?','loanReason')}
+    <h2>3. Bond Mechanics & U.S. Treasuries</h2>
+    ${block('Bond','vocabBond')}${block('Issuer','vocabIssuer')}${block('Principal / Face Value','vocabPrincipal')}${block('Interest / Coupon Rate','vocabInterest')}${block('Maturity','vocabMaturity')}
+    <div class="p-choice"><strong>Bond flow check:</strong><br>Borrower: ${escapeHtml(val('bondTrace1'))||'(blank)'}<br>At maturity: ${escapeHtml(val('bondTrace2'))||'(blank)'}<br>Investor receives: ${escapeHtml(val('bondTrace3'))||'(blank)'}</div>
+    <div class="p-choice"><strong>Bond calculation:</strong><br>Annual interest: $${escapeHtml(val('bondAnnualInterest'))||'(blank)'}<br>4-year total interest: $${escapeHtml(val('bondTotalInterest'))||'(blank)'}<br>Principal at maturity: $${escapeHtml(val('bondMaturityReturn'))||'(blank)'}</div>
+    ${block('First idea: where U.S. borrowing comes from','treasuryDebtIdea')}${block('Treasury connection','treasuryConnection')}
+    <h2>4. Name Your Rate</h2>${block('Risk round','rateRiskWrap')}${block('Time round','rateTimeWrap')}${block('Partner / group idea','partnerIdea')}
+    <h2>5. Bond Risks</h2><div class="p-choice"><strong>Risk scenario choices:</strong><br>A: ${escapeHtml(val('bondRisk1'))||'(blank)'}<br>B: ${escapeHtml(val('bondRisk2'))||'(blank)'}<br>C: ${escapeHtml(val('bondRisk3'))||'(blank)'}<br>D: ${escapeHtml(val('bondRisk4'))||'(blank)'}</div>${block('Treasury vs. higher-risk company bond','bondRiskCompare')}
+    <h2>6. Market Rates & Existing Bonds</h2><div class="p-choice"><strong>Clickable responses:</strong><br>Scenario 1: ${escapeHtml(rateAnswers.r1||'(blank)')}<br>Scenario 2: ${escapeHtml(rateAnswers.r2||'(blank)')}<br>Checks used: ${rateAttempts} · Final answers revealed: ${rateRevealed?'Yes':'No'}</div>
+    <h2>7. Stock vs. Bond</h2><div class="p-choice"><strong>Clickable responses:</strong><br>Stock statement: ${escapeHtml(val('sb1'))||'(blank)'}<br>Bond statement: ${escapeHtml(val('sb2'))||'(blank)'}<br>Maturity statement: ${escapeHtml(val('sb3'))||'(blank)'}<br>Checks used: ${stockBondAttempts}</div>
+    <h2>8. $10,000 Reveal</h2><div class="p-block">Revealed changes — A: ${escapeHtml(val('changeA'))}% · B: ${escapeHtml(val('changeB'))}% · C: ${escapeHtml(val('changeC'))}%</div>${lastCalculatedPortfolio?'<div class="p-choice"><strong>Personal portfolio calculation:</strong><br>Company A after reveal: '+money(lastCalculatedPortfolio.after[0])+'<br>Company B after reveal: '+money(lastCalculatedPortfolio.after[1])+'<br>Company C after reveal: '+money(lastCalculatedPortfolio.after[2])+'<br><strong>Total after reveal: '+money(lastCalculatedPortfolio.total)+'</strong></div>':'<div class="p-choice">Personal portfolio calculation: (not calculated)</div>'}${block('What it taught me','portfolioImpact')}
+    <h2>9. Portfolio & Diversification Vocabulary</h2>${block('Portfolio','vocabPortfolio')}${block('Diversification','vocabDiversification')}${block('Risk','vocabRisk')}${block('Return','vocabReturn')}
+    <h2>10. Risk–Reward Continuum</h2>${block('One debated placement + evidence','continuumEvidence')}
+    <h2>11. Individual Synthesis / Exit Ticket</h2>${block('Maya synthesis response','mayaReflection')}
+
+  `;
+  document.getElementById('print-summary').innerHTML=html;
+  document.body.classList.add('printing'); window.print();
+}
+window.addEventListener('afterprint',()=>document.body.classList.remove('printing'));
+
+// ---------- Initialization ----------
+document.addEventListener('DOMContentLoaded',()=>{
+  ['allocA','allocB','allocC'].forEach(id=>document.getElementById(id).addEventListener('input',updateAllocationTotal));
+  updateAllocationTotal();
+  wireTryFirst('mayaReflection','checkbtn-maya',80);
+  ALL_TEXT_FIELDS.forEach(id=>{
+    const el=document.getElementById(id); if(!el) return;
+    el.addEventListener('paste',e=>{e.preventDefault();const w=document.getElementById('paste-warning');if(w){w.style.display='block';setTimeout(()=>w.style.display='none',2500);}});
+    el.addEventListener('contextmenu',e=>e.preventDefault());
+  });
+  AUTOSAVE_FIELDS.forEach(id=>{const el=document.getElementById(id);if(el){el.addEventListener('input',scheduleAutoSave);el.addEventListener('change',scheduleAutoSave);}});
+  renderRateChoices();
+});
+</script>
+</body>
+</html>
+
