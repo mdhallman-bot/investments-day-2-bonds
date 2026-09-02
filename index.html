@@ -119,7 +119,7 @@
 
 <div class="prompt-box">
   <strong>Today's 100-minute path:</strong>
-  Do Now (8) → Loan Hook (8) → Bond Mechanics (13) → Bond Math (6) → Treasuries & Debt (9) → Name Your Rate (11) → Bond Risks (12) → Market Rates (5) → Stock vs. Bond (4) → $10K Reveal (7) → Portfolio & Diversification (5) → Risk–Reward Continuum (6) → Exit/Submit (6)
+  Do Now (8) → Loan Hook (8) → Bond Mechanics/Math (17) → Treasuries & Debt (8) → Selling Bonds Bridge (5) → Name Your Rate (9) → Bond Risks (11) → Market Rates (5) → Stock vs. Bond (4) → $10K Reveal (7) → Portfolio & Diversification (4) → Continuum (6) → Exit/Submit (8)
 </div>
 
 <div class="howto">
@@ -352,8 +352,79 @@
   <div class="lang-frame" id="treasuryConnection-frame"></div>
 </div>
 
+
 <!-- 4 -->
-<h2>4. Name Your Rate — Activity Wrap-Up</h2>
+<h2>4. Wait — You Can Sell a Bond?</h2>
+<span class="segment-tag">Concept Bridge · Direct Instruction + Quick Check</span>
+
+<div class="tier3-preview">
+  <div class="tier3-preview-title">Tier 3 preview — bond market language</div>
+  <div class="tier3-cards">
+    <div class="tier3-card">
+      <svg viewBox="0 0 64 64" role="img" aria-label="bond changing owners"><rect x="8" y="14" width="24" height="34" rx="4" fill="#eef3f8" stroke="#1B2A4A" stroke-width="2"/><rect x="32" y="14" width="24" height="34" rx="4" fill="#fbf6e9" stroke="#B08D2B" stroke-width="2"/><path d="M23 31h18M38 26l5 5-5 5" fill="none" stroke="#1B2A4A" stroke-width="3"/></svg>
+      <div><strong>Bond Market</strong><span>Where investors can buy and sell bonds after they are issued.</span></div>
+    </div>
+    <div class="tier3-card">
+      <svg viewBox="0 0 64 64" role="img" aria-label="right to payments"><path d="M10 18h34v28H10z" fill="#e4f4e6" stroke="#3F7D53" stroke-width="2"/><path d="M18 28h18M18 36h12" stroke="#1B2A4A" stroke-width="2"/><path d="M46 24h10l-4-4M56 40H46l4 4" fill="none" stroke="#B08D2B" stroke-width="3"/></svg>
+      <div><strong>Remaining Payments</strong><span>The future interest payments and principal repayment still promised on the bond.</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="teacher-dependent">
+  <strong>PAUSE FOR DIRECT INSTRUCTION.</strong><br>
+  Students usually understand trading stocks, but not trading bonds. Make the connection explicit:
+  <strong>people can buy and sell bonds, too.</strong> What changes is not the borrower. What changes is
+  <strong>who owns the right to receive the bond's remaining promised payments.</strong>
+</div>
+
+<div class="callout">
+  <strong>The key idea:</strong> The borrower did not change. The owner of the loan changed.
+</div>
+
+<div class="flow-box">
+  <div class="flow-step"><strong>1. You buy the bond.</strong><br>Company A promises to pay you $50 each year and return $1,000 at maturity.</div>
+  <div class="flow-arrow">→</div>
+  <div class="flow-step"><strong>2. You sell the bond to Sofia.</strong><br>Sofia pays you for the bond.</div>
+  <div class="flow-arrow">→</div>
+  <div class="flow-step"><strong>3. The payments follow the bond.</strong><br>Company A now sends the remaining payments to Sofia.</div>
+</div>
+
+<div class="prompt-box">
+  <strong>Student-friendly version:</strong> Buying a bond from another investor means buying the right to receive the bond's remaining promised payments.
+</div>
+
+<div class="language-key">
+  <strong>Speaking frame:</strong><br>
+  “The borrower stayed the same, but ___ changed because ___.”
+</div>
+
+<h3>Quick Check</h3>
+<div class="check-row">
+  <div class="scenario">You sell your Company A bond to Sofia. Who now receives the remaining bond payments?</div>
+  <select id="bondResale1">
+    <option value="">Choose...</option>
+    <option value="you">You</option>
+    <option value="sofia">Sofia</option>
+    <option value="both">Both of you equally</option>
+    <option value="company">Company A keeps the payments</option>
+  </select>
+</div>
+<div class="check-row">
+  <div class="scenario">What changed when you sold the bond?</div>
+  <select id="bondResale2">
+    <option value="">Choose...</option>
+    <option value="borrower">The borrower changed</option>
+    <option value="disappeared">The original loan disappeared</option>
+    <option value="owner">Who owns the right to the remaining payments changed</option>
+    <option value="stock">The bond turned into stock ownership</option>
+  </select>
+</div>
+<button type="button" id="check-bondresale-btn" onclick="checkBondResale()">Check the Bond Sale Idea</button>
+<div id="bondresale-feedback" class="helper-panel" style="display:none;"></div>
+
+<!-- 4 -->
+<h2>5. Name Your Rate — Activity Wrap-Up</h2>
 <span class="segment-tag">After the Physical Card Activity</span>
 <div class="language-key">
   <strong>Speaking frames:</strong><br>
@@ -381,7 +452,7 @@
 </div>
 
 <!-- 5 -->
-<h2>5. Bond Risks — “Safer” Does Not Mean “No Risk”</h2>
+<h2>6. Bond Risks — “Safer” Does Not Mean “No Risk”</h2>
 <span class="segment-tag">Substantial Risk Section · Scenarios</span>
 
 <div class="tier3-preview">
@@ -466,7 +537,7 @@
 </div>
 
 <!-- 6 -->
-<h2>6. Quick Self-Check — Market Rates & Existing Bonds</h2>
+<h2>7. Quick Self-Check — Market Rates & Existing Bonds</h2>
 <span class="segment-tag">Plain-Code Self-Check</span>
 <p style="font-family:Arial,sans-serif;font-size:.88rem;color:#555;">Choose whether the existing bond becomes <strong>more attractive</strong> or <strong>less attractive</strong> compared with newly issued similar bonds. You get 3 checks. Early checks show only how many are correct.</p>
 <div class="check-row" id="rate-row-1">
@@ -483,7 +554,7 @@
 <div class="callout"><strong>Keep the mental model simple:</strong> if new similar bonds pay more, an older lower-rate bond looks less attractive. If new similar bonds pay less, the older higher-rate bond looks more attractive.</div>
 
 <!-- 6 -->
-<h2>7. Stock or Bond? Build the Distinction</h2>
+<h2>8. Stock or Bond? Build the Distinction</h2>
 <span class="segment-tag">After Partner Comparison</span>
 <p style="font-family:Arial,sans-serif;font-size:.88rem;color:#555;">Complete these three distinctions from today's discussion, then self-check.</p>
 <div class="check-row"><div class="scenario">Buying a stock means...</div><select id="sb1"><option value="">Choose...</option><option value="ownership">owning part of a company</option><option value="lending">lending money to an issuer</option></select></div>
@@ -493,7 +564,7 @@
 <div id="sb-feedback" class="helper-panel" style="display:none;"></div>
 
 <!-- 7 -->
-<h2>8. Return to Your $10,000 — What Happened?</h2>
+<h2>9. Return to Your $10,000 — What Happened?</h2>
 <span class="segment-tag">After the Live Reveal</span>
 <div class="teacher-dependent"><strong>Wait for the class reveal.</strong> Enter the percentage changes your teacher gives you. This page intentionally does not supply them ahead of time.</div>
 <div class="money-grid">
@@ -515,7 +586,7 @@
 </div>
 
 <!-- 8 -->
-<h2>9. Naming What You Found — Portfolio & Diversification</h2>
+<h2>10. Naming What You Found — Portfolio & Diversification</h2>
 <span class="segment-tag">After Class Debrief</span>
 
 <div class="tier3-preview">
@@ -535,7 +606,7 @@
 <div class="warning-callout"><strong>Important:</strong> Diversification can reduce risk. It does <strong>not</strong> guarantee that a portfolio cannot lose money.</div>
 
 <!-- 10 -->
-<h2>10. Risk–Reward Continuum — Talk First, Then Record</h2>
+<h2>11. Risk–Reward Continuum — Talk First, Then Record</h2>
 <span class="segment-tag">Physical Group Activity · 6 minutes</span>
 
 <div class="teacher-dependent">
@@ -558,7 +629,7 @@
 </div>
 
 <!-- 11 --><!-- 11 -->
-<h2>11. Individual Synthesis — Today's Exit Ticket</h2>
+<h2>12. Individual Synthesis — Today's Exit Ticket</h2>
 <span class="segment-tag">Individual · AI-Coached · 4 minutes</span>
 
 <div class="prompt-box">
@@ -782,6 +853,21 @@ function checkBondRisks(){
   scheduleAutoSave();
 }
 
+
+function checkBondResale(){
+  const a1=val('bondResale1');
+  const a2=val('bondResale2');
+  const correct=(a1==='sofia'?1:0)+(a2==='owner'?1:0);
+  const panel=document.getElementById('bondresale-feedback');
+  panel.style.display='block';
+  if(correct===2){
+    panel.innerHTML='<strong>2 of 2 correct.</strong> The borrower stayed the same. Sofia bought the right to receive the remaining promised payments on the bond.';
+  }else{
+    panel.innerHTML='<strong>'+correct+' of 2 correct.</strong> Re-check the key idea: when a bond is sold, the borrower does not change. The owner of the right to the remaining payments changes.';
+  }
+  scheduleAutoSave();
+}
+
 // ---------- Portfolio calculation ----------
 function calculatePortfolio(){
   const allocation=[num('allocA'),num('allocB'),num('allocC')];
@@ -858,6 +944,7 @@ function collectState(){
       annualInterest:val('bondAnnualInterest'),totalInterest:val('bondTotalInterest'),maturityReturn:val('bondMaturityReturn')
     },
     treasury:{debtIdea:val('treasuryDebtIdea'),connection:val('treasuryConnection')},
+    bondResale:{resale1:val('bondResale1'),resale2:val('bondResale2')},
     nameYourRate:{riskWrap:val('rateRiskWrap'),timeWrap:val('rateTimeWrap'),partnerIdea:val('partnerIdea')},
     bondRisks:{risk1:val('bondRisk1'),risk2:val('bondRisk2'),risk3:val('bondRisk3'),risk4:val('bondRisk4'),compare:val('bondRiskCompare')},
     rateCheck:{answers:rateAnswers,attempts:rateAttempts,revealed:rateRevealed},
@@ -896,6 +983,7 @@ async function loadState(){
 
   const tr=data.treasury||{};
   setValue('treasuryDebtIdea',tr.debtIdea);setValue('treasuryConnection',tr.connection);
+  const rs=data.bondResale||{};setValue('bondResale1',rs.resale1);setValue('bondResale2',rs.resale2);
 
   const nr=data.nameYourRate||{};
   setValue('rateRiskWrap',nr.riskWrap);setValue('rateTimeWrap',nr.timeWrap);setValue('partnerIdea',nr.partnerIdea);
@@ -952,7 +1040,7 @@ async function submitWork(){
   window.lastReflectResult=data;
   const cls=data.complete?'pass':'incomplete';
   const heading=data.complete?'Complete ('+data.passedCount+'/'+data.total+') — nice work today.':'Not quite complete yet ('+data.passedCount+'/'+data.total+')';
-  const labels={doNow:'Do Now allocation + reasoning',loanHook:'Loan hook',bondVocab:'Bond vocabulary',bondMechanics:'Bond mechanics + calculation',treasury:'U.S. Treasury connection',nameYourRate:'Name Your Rate wrap-up',bondRisks:'Bond risk scenarios',rateCheck:'Market-rate self-check',stockBondCheck:'Stock vs. bond check',portfolioReveal:'Portfolio reveal + reflection',diversificationVocab:'Portfolio/diversification vocabulary',continuum:'Risk–reward continuum reflection',synthesis:'Individual synthesis / exit ticket'};
+  const labels={doNow:'Do Now allocation + reasoning',loanHook:'Loan hook',bondVocab:'Bond vocabulary',bondMechanics:'Bond mechanics + calculation',treasury:'U.S. Treasury connection',bondResale:'Buying and selling bonds bridge',nameYourRate:'Name Your Rate wrap-up',bondRisks:'Bond risk scenarios',rateCheck:'Market-rate self-check',stockBondCheck:'Stock vs. bond check',portfolioReveal:'Portfolio reveal + reflection',diversificationVocab:'Portfolio/diversification vocabulary',continuum:'Risk–reward continuum reflection',synthesis:'Individual synthesis / exit ticket'};
   let checklistHtml='';
   if(!data.complete&&data.checklist){ checklistHtml='<ul>';Object.keys(data.checklist).forEach(k=>{if(!data.checklist[k]) checklistHtml+='<li>'+(labels[k]||k)+'</li>';});checklistHtml+='</ul>'; }
   let feedbackHtml='';
@@ -991,14 +1079,15 @@ function downloadWork(){
     <div class="p-choice"><strong>Bond flow check:</strong><br>Borrower: ${escapeHtml(val('bondTrace1'))||'(blank)'}<br>At maturity: ${escapeHtml(val('bondTrace2'))||'(blank)'}<br>Investor receives: ${escapeHtml(val('bondTrace3'))||'(blank)'}</div>
     <div class="p-choice"><strong>Bond calculation:</strong><br>Annual interest: $${escapeHtml(val('bondAnnualInterest'))||'(blank)'}<br>4-year total interest: $${escapeHtml(val('bondTotalInterest'))||'(blank)'}<br>Principal at maturity: $${escapeHtml(val('bondMaturityReturn'))||'(blank)'}</div>
     ${block('First idea: where U.S. borrowing comes from','treasuryDebtIdea')}${block('Treasury connection','treasuryConnection')}
-    <h2>4. Name Your Rate</h2>${block('Risk round','rateRiskWrap')}${block('Time round','rateTimeWrap')}${block('Partner / group idea','partnerIdea')}
-    <h2>5. Bond Risks</h2><div class="p-choice"><strong>Risk scenario choices:</strong><br>A: ${escapeHtml(val('bondRisk1'))||'(blank)'}<br>B: ${escapeHtml(val('bondRisk2'))||'(blank)'}<br>C: ${escapeHtml(val('bondRisk3'))||'(blank)'}<br>D: ${escapeHtml(val('bondRisk4'))||'(blank)'}</div>${block('Treasury vs. higher-risk company bond','bondRiskCompare')}
-    <h2>6. Market Rates & Existing Bonds</h2><div class="p-choice"><strong>Clickable responses:</strong><br>Scenario 1: ${escapeHtml(rateAnswers.r1||'(blank)')}<br>Scenario 2: ${escapeHtml(rateAnswers.r2||'(blank)')}<br>Checks used: ${rateAttempts} · Final answers revealed: ${rateRevealed?'Yes':'No'}</div>
-    <h2>7. Stock vs. Bond</h2><div class="p-choice"><strong>Clickable responses:</strong><br>Stock statement: ${escapeHtml(val('sb1'))||'(blank)'}<br>Bond statement: ${escapeHtml(val('sb2'))||'(blank)'}<br>Maturity statement: ${escapeHtml(val('sb3'))||'(blank)'}<br>Checks used: ${stockBondAttempts}</div>
-    <h2>8. $10,000 Reveal</h2><div class="p-block">Revealed changes — A: ${escapeHtml(val('changeA'))}% · B: ${escapeHtml(val('changeB'))}% · C: ${escapeHtml(val('changeC'))}%</div>${lastCalculatedPortfolio?'<div class="p-choice"><strong>Personal portfolio calculation:</strong><br>Company A after reveal: '+money(lastCalculatedPortfolio.after[0])+'<br>Company B after reveal: '+money(lastCalculatedPortfolio.after[1])+'<br>Company C after reveal: '+money(lastCalculatedPortfolio.after[2])+'<br><strong>Total after reveal: '+money(lastCalculatedPortfolio.total)+'</strong></div>':'<div class="p-choice">Personal portfolio calculation: (not calculated)</div>'}${block('What it taught me','portfolioImpact')}
-    <h2>9. Portfolio & Diversification Vocabulary</h2>${block('Portfolio','vocabPortfolio')}${block('Diversification','vocabDiversification')}${block('Risk','vocabRisk')}${block('Return','vocabReturn')}
-    <h2>10. Risk–Reward Continuum</h2>${block('One debated placement + evidence','continuumEvidence')}
-    <h2>11. Individual Synthesis / Exit Ticket</h2>${block('Maya synthesis response','mayaReflection')}
+    <h2>4. Buying & Selling Bonds</h2><div class="p-choice"><strong>Quick check:</strong><br>Who receives payments after sale? ${escapeHtml(val('bondResale1'))||'(blank)'}<br>What changed? ${escapeHtml(val('bondResale2'))||'(blank)'}</div>
+    <h2>5. Name Your Rate</h2>${block('Risk round','rateRiskWrap')}${block('Time round','rateTimeWrap')}${block('Partner / group idea','partnerIdea')}
+    <h2>6. Bond Risks</h2><div class="p-choice"><strong>Risk scenario choices:</strong><br>A: ${escapeHtml(val('bondRisk1'))||'(blank)'}<br>B: ${escapeHtml(val('bondRisk2'))||'(blank)'}<br>C: ${escapeHtml(val('bondRisk3'))||'(blank)'}<br>D: ${escapeHtml(val('bondRisk4'))||'(blank)'}</div>${block('Treasury vs. higher-risk company bond','bondRiskCompare')}
+    <h2>7. Market Rates & Existing Bonds</h2><div class="p-choice"><strong>Clickable responses:</strong><br>Scenario 1: ${escapeHtml(rateAnswers.r1||'(blank)')}<br>Scenario 2: ${escapeHtml(rateAnswers.r2||'(blank)')}<br>Checks used: ${rateAttempts} · Final answers revealed: ${rateRevealed?'Yes':'No'}</div>
+    <h2>8. Stock vs. Bond</h2><div class="p-choice"><strong>Clickable responses:</strong><br>Stock statement: ${escapeHtml(val('sb1'))||'(blank)'}<br>Bond statement: ${escapeHtml(val('sb2'))||'(blank)'}<br>Maturity statement: ${escapeHtml(val('sb3'))||'(blank)'}<br>Checks used: ${stockBondAttempts}</div>
+    <h2>9. $10,000 Reveal</h2><div class="p-block">Revealed changes — A: ${escapeHtml(val('changeA'))}% · B: ${escapeHtml(val('changeB'))}% · C: ${escapeHtml(val('changeC'))}%</div>${lastCalculatedPortfolio?'<div class="p-choice"><strong>Personal portfolio calculation:</strong><br>Company A after reveal: '+money(lastCalculatedPortfolio.after[0])+'<br>Company B after reveal: '+money(lastCalculatedPortfolio.after[1])+'<br>Company C after reveal: '+money(lastCalculatedPortfolio.after[2])+'<br><strong>Total after reveal: '+money(lastCalculatedPortfolio.total)+'</strong></div>':'<div class="p-choice">Personal portfolio calculation: (not calculated)</div>'}${block('What it taught me','portfolioImpact')}
+    <h2>10. Portfolio & Diversification Vocabulary</h2>${block('Portfolio','vocabPortfolio')}${block('Diversification','vocabDiversification')}${block('Risk','vocabRisk')}${block('Return','vocabReturn')}
+    <h2>11. Risk–Reward Continuum</h2>${block('One debated placement + evidence','continuumEvidence')}
+    <h2>12. Individual Synthesis / Exit Ticket</h2>${block('Maya synthesis response','mayaReflection')}
 
   `;
   document.getElementById('print-summary').innerHTML=html;
@@ -1022,5 +1111,4 @@ document.addEventListener('DOMContentLoaded',()=>{
 </script>
 </body>
 </html>
-
 
